@@ -1,9 +1,32 @@
-const sql = require('msnodesqlv8');
+const sql = require('mssql');
 
-const connectionString = "server=MSI\\MSSQLPATSV;Database=lei_foodhubDb;Trusted_Connection=Yes;Encrypt=yes;TrustServerCertificate=yes;Driver={ODBC Driver 17 for SQL Server}";
+const config = {
+  user: 'Leifoodhub',
+  password: 'leiallen12345',
+  server: 'localhost',
+  database: 'lei_foodhubDb',
+  options: {
+	instanceName: 'MSSQLPATSV',
+	encrypt: true,
+	trustServerCertificate: true
+  }
+};
 
-function query(sqlQuery, callback) {
-  sql.query(connectionString, sqlQuery, callback);
+async function query(sqlQuery, params = {}) {
+  try {
+	const pool = await sql.connect(config);
+	const request = pool.request();
+
+	for (let param in params) {
+  	request.input(param, params[param]);
+	}
+
+	const result = await request.query(sqlQuery);
+	return result.recordset;
+  } catch (err) {
+	console.error("Database Query Error:", err.message);
+	throw err;  
+  }
 }
 
 module.exports = { query };
