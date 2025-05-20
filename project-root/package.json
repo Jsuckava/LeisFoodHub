@@ -1,7 +1,15 @@
 {
+  "name": "lei-foodhub-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "express": "^4.18.2",
     "express-session": "^1.18.1",
-    "mssql": "^11.0.1"
+    "mssql": "^11.0.1",
+    "body-parser": "^1.20.2"
   }
 }
