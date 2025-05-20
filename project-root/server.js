@@ -43,7 +43,8 @@ app.post('/login', async (req, res) => {
 
     req.session.username = username
     res.redirect('/')
-  } catch {
+  } catch (err) {
+    console.error('Login error:', err)
     res.status(500).send('Database error')
   }
 })
@@ -59,7 +60,8 @@ app.post('/signup', async (req, res) => {
     await db.query(query, { username, email, password: hashedPassword })
 
     res.redirect('/acc')
-  } catch {
+  } catch (err) {
+    console.error('Signup error:', err)
     res.status(500).send('Signup failed')
   }
 })
