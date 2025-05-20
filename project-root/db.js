@@ -1,20 +1,22 @@
+require('dotenv').config()
 const sql = require('mssql')
 
 const config = {
-  user: 'Leifoodhub',
-  password: 'leiallen12345',
-  server: 'MSI',
-  database: 'lei_foodhubDb',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  server: process.env.DB_SERVER,
+  database: process.env.DB_DATABASE,
   options: {
-    instanceName: 'MSSQLPATSV',
+    instanceName: process.env.DB_INSTANCE,
     encrypt: true,
     trustServerCertificate: true
   }
 }
 
+const poolPromise = sql.connect(config)
 
 async function query(sqlQuery, params = {}) {
-  const pool = await sql.connect(config)
+  const pool = await poolPromise
   const request = pool.request()
   for (const param in params) {
     request.input(param, params[param])
