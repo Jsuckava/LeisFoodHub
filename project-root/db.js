@@ -1,3 +1,4 @@
+
 const sql = require('mssql')
 
 const config = {
@@ -5,12 +6,13 @@ const config = {
   password: 'leiallen12345',
   server: 'localhost',
   database: 'lei_foodhubDb',
+  port: 1433,
   options: {
-    instanceName: 'MSSQLPATSV',
     encrypt: true,
     trustServerCertificate: true
   }
 }
+
 
 async function query(sqlQuery, params = {}) {
   const pool = await sql.connect(config)
