@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEI's FoodHUB</title>
+  <link rel="stylesheet" href="prot3.css" />
+  <script src="function.jsx"></script>
+  <script src="addtocart.jsx"></script>
+  <script src="SearchFuntion.jsx"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="pictures And Icons/LOGOp2.png" alt="logo0" /></a>
+    </div>
+    <input type="text" class="searchCl" placeholder="Search" onkeyup="searchItems()" id="search" onclick="toggleDropdown('dropdownContent')" autocomplete="off" />
+    <div id="dropdownContent" class="dropdown-content">
+      <ul id="searchList">
+        <li><a href="ct1.html" data-url="ct1.html">CDO IDOL CHEESEDOG</a></li>
+        <li><a href="ct2.html" data-url="ct2.html">CDO Classic Sweet Ham</a></li>
+        <li><a href="ct3.html" data-url="ct3.html">CDO HOL Bacon Roll</a></li>
+        <li><a href="ct4.html" data-url="ct4.html">CDO Pork Longganisa</a></li>
+        <li><a href="ct5.html" data-url="ct5.html">CDO FUN Y Tocino</a></li>
+        <li><a href="ct6.html" data-url="ct6.html">CDO Ulam Burger Regular</a></li>
+        <li><a href="ct7.html" data-url="ct7.html">CDO Corned Beef</a></li>
+        <li>Purefoods</li>
+        <li><a href="tp1.html" data-url="tp1.html">Purefoods Tender Juicy Hotdogs</a></li>
+        <li><a href="tp2.html" data-url="tp2.html">Purefoods Breast and Chicken Nuggets</a></li>
+        <li><a href="tp3.html" data-url="tp3.html">Purefoods Sweet Ham</a></li>
+        <li><a href="tp4.html" data-url="tp4.html">Purefoods VIDA Bacon Roll</a></li>
+        <li>Mommy Loida</li>
+        <li><a href="ml2.html" data-url="ml2.html">SIOPAO ASADO</a></li>
+        <li><a href="ml1.html" data-url="ml1.html">Mommy Loida SIOMAI</a></li>
+        <li><a href="ml3.html" data-url="ml3.html">Mommy Loida SHANGHAI</a></li>
+        <li><a href="ml4.html" data-url="ml4.html">PORK LUNCHEON MEAT</a></li>
+        <li><a href="ml5.html" data-url="ml5.html">LECHON KAWALI</a></li>
+        <li><a href="ml6.html" data-url="ml6.html">CHICHARON BULAKLAK</a></li>
+        <li><a href="ml7.html" data-url="ml7.html">PORK TOCINO</a></li>
+        <li><a href="ml8.html" data-url="ml8.html">SWEET HAM</a></li>
+        <li><a href="ml9.html" data-url="ml9.html">GARLIC LONGANISA</a></li>
+        <li><a href="ml10.html" data-url="ml10.html">PORK SISIG</a></li>
+        <li>Frabelle</li>
+        <li><a href="FF1.html" data-url="FF1.html">FF PORK LUNCHEON MEAT</a></li>
+        <li><a href="FF2.html" data-url="FF2.html">FF BACON CLASSIC</a></li>
+        <li><a href="FF3.html" data-url="FF3.html">FF B SJ CLASSIC</a></li>
+        <li><a href="FF4.html" data-url="FF4.html">FF B KINGSIZE</a></li>
+        <li><a href="FF5.html" data-url="FF5.html">FF SULIT KINGSIZE</a></li>
+        <li><a href="FF6.html" data-url="FF6.html">FF B SJ CHICKEN 1KG</a></li>
+        <li><a href="FF7.html" data-url="FF7.html">FF B CHICKEN FRANKS</a></li>
+        <li><a href="FF8.html" data-url="FF8.html">FF FOOTLONG</a></li>
+        <li><a href="FF9.html" data-url="FF9.html">FF B REG CHEESEDOG</a></li>
+        <li><a href="FF10.html" data-url="FF10.html">FF TOCINITOS</a></li>
+        <li><a href="FF11.html" data-url="FF11.html">FF MIX VEGETABLE CREAM DORY</a></li>
+        <li><a href="FF12.html" data-url="FF12.html">FF SEAFOODS</a></li>           
+      </ul>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Products.html">Products</a>
+      <a href="aboutUs3.html">About us</a>
+    </nav>
+  </header>
+
+  <div class="wrap-box1">
+    <section>
+      <button class="Bt1" onclick="history.back()"><h4>Back</h4></button>
+      <button onclick="openCartModal()" class="Bt2">View Cart</button>
+    </section>
+
+    <div>
+      <h2 class="product-name">Frabelle Bossing Regular Hotdog</h2>
+      <img src="pictures And Icons/FFBHTR.webp" alt="Frabelle Bossing Regular Cheesedog" class="cart-item-img" />
+      
+
+      <p>Quantity:</p>
+      <section class="DecAdd">
+        <button class="aDec">-</button>
+        <input type="text" name="quantity" value="1" class="input quantity" min="1"/>
+        <button class="bAdd">+</button>
+        <button class="PayBtn" onclick="togglePaymentModal()">Pay now</button>
+        <button class="addC">Add to Cart</button>
+      </section>
+
+      <div id="modalWrapper" class="modal-wrapper" style="background:none; display:none; margin-left:-22.6rem; border:none;">
+        <div id="paymentModal" class="modal">
+          <h3>Choose Payment Method</h3>
+          <a href=""><button class="gcashBtn">GCash</button></a>
+          <a href=""><button class="bankBtn">PayMaya</button></a> 
+          <button class="closeModal" onclick="togglePaymentModal()">Cancel</button>
+        </div>
+      </div>
+
+      <section id="modalWrapper1" class="cart-modal-wrapper" style="display:none;">
+        <section class="cart-modal-container">
+            <section class="cart-modal-content">
+                <header class="cart-header">
+                    <h2 class="cart-title">Your Shopping Cart
+                        <button class="cart-close-btn" id="close-modal1">Close</button>
+                    </h2>
+                </header>
+                <main class="cart-body">
+                    <section id="cart-items" class="cart-items-list"></section>
+                    <section class="cart-empty-message" style="display:none;">
+                        <p>Your cart is empty</p>
+                    </section>
+                </main>
+                <footer class="cart-footer">
+                    <section class="cart-summary">
+                        <section class="summary-row">
+                            <span>Total Items:</span>
+                            <span id="total-items" class="summary-value">0</span>
+                        </section>
+                        <section class="summary-row">
+                            <span>Subtotal: </span>
+                            <span id="subtotal" class="summary-price">₱0.00</span>
+                        </section> 
+                        <button id="checkout-btn" class="checkout-btn">Proceed to Checkout</button>
+                    </section>
+                </footer>
+            </section>
+        </section>
+    </section>
+
+      <p class="Price"><strong>Price: </strong><span>₱100</span>
+        <section class="priceRemin">Price per Package
+          <span class="priceRtext">₱100 per Quantity</span>
+        </section>
+      </p>
+
+      
+    </div>
+  </div>
+  <div id="checkoutModalWrapper" class="modal-wrapper" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.5); z-index:999;">
+    <div id="checkoutModal" class="modal" style="margin:10% auto; padding:2rem; background:#fff; width:90%; max-width:400px; text-align:center; border-radius:10px;">
+        <h3>Confirm Checkout</h3>
+        <p id="checkoutSummaryText" style="margin:1rem 0;"></p>
+        <button id="confirmCheckoutBtn" class="gcashBtn" style="margin:0.5rem;">Confirm</button>
+        <button id="cancelCheckoutBtn" class="closeModal" style="margin:0.5rem;">Cancel</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+const sql = require('mssql');
+
+const config = {
+    server: 'MSI\MSSQLPATSV', 
+    database: 'lei_foodhubDb',
+    options: {
+        encrypt: true, 
+        trustServerCertificate: true, // Use for local development
+    },
+    authentication: {
+        type: 'ntlm', // Windows authentication
+    }
+};
+
+const poolPromise = new sql.ConnectionPool(config)
+    .connect()
+    .then(pool => {
+        console.log('Connected to SQL Server using Windows Authentication');
+        return pool;
+    })
+    .catch(err => {
+        console.error('Database connection failed:', err);
+        process.exit(1);
+    });
+
+module.exports = {
+    sql,
+    poolPromise
+};

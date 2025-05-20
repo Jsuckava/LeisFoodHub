@@ -1,0 +1,29 @@
+{
+  "name": "leifoodhub",
+  "version": "1.0.0",
+  "main": "db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jsuckava/LeiFoodHub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jsuckava/LeiFoodHub/issues"
+  },
+  "homepage": "https://github.com/Jsuckava/LeiFoodHub#readme",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "leifoodhub": "file:",
+    "msnodesqlv8": "^4.5.0"
+  }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lei's FOODHUB SHOP</title>
+    <link rel="stylesheet" href="prot2.css">
+    <script src="function.jsx"></script>
+    <script src="SearchFuntion.jsx"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <a href="prot1.1.html"><img src="pictures And Icons/LOGOp2.png" alt="logo0"></a>
+        </div>
+
+          <input type="text" class="searchCl" 
+           placeholder="Search" 
+           onkeyup="searchItems()" id="search"
+           onclick="toggleDropdown('dropdownContent')"
+           autocomplete="off">
+      
+          <div id="dropdownContent" class="dropdown-content">
+            <ul id="searchList">
+                <li><a href="ct1.html" data-url="ct1.html">CDO IDOL CHEESEDOG</a></li>
+                <li><a href="ct2.html" data-url="ct2.html">CDO Classic Sweet Ham</a></li>
+                <li><a href="ct3.html" data-url="ct3.html">CDO HOL Bacon Roll</a></li>
+                <li><a href="ct4.html" data-url="ct4.html">CDO Pork Longganisa</a></li>
+                <li><a href="ct5.html" data-url="ct5.html">CDO FUN Y Tocino</a></li>
+                <li><a href="ct6.html" data-url="ct6.html">CDO Ulam Burger Regular</a></li>
+                <li><a href="ct7.html" data-url="ct7.html">CDO Corned Beef</a></li>
+                <li>Purefoods</li>
+                <li><a href="tp1.html" data-url="tp1.html">Purefoods Tender Juicy Hotdogs</a></li>
+                <li><a href="tp2.html" data-url="tp2.html">Purefoods Breast and Chicken Nuggets</a></li>
+                <li><a href="tp3.html" data-url="tp3.html">Purefoods Sweet Ham</a></li>
+                <li><a href="tp4.html" data-url="tp4.html">Purefoods VIDA Bacon Roll</a></li>
+                <li>Mommy Loida</li>
+                <li><a href="ml2.html" data-url="ml2.html">SIOPAO ASADO</a></li>
+                <li><a href="ml1.html" data-url="ml1.html">Mommy Loida SIOMAI</a></li>
+                <li><a href="ml3.html" data-url="ml3.html">Mommy Loida SHANGHAI</a></li>
+                <li><a href="ml4.html" data-url="ml4.html">PORK LUNCHEON MEAT</a></li>
+                <li><a href="ml5.html" data-url="ml5.html">LECHON KAWALI</a></li>
+                <li><a href="ml6.html" data-url="ml6.html">CHICHARON BULAKLAK</a></li>
+                <li><a href="ml7.html" data-url="ml7.html">PORK TOCINO</a></li>
+                <li><a href="ml8.html" data-url="ml8.html">SWEET HAM</a></li>
+                <li><a href="ml9.html" data-url="ml9.html">GARLIC LONGANISA</a></li>
+                <li><a href="ml10.html" data-url="ml10.html">PORK SISIG</a></li>
+                <li>Frabelle</li>
+                <li><a href="FF1.html" data-url="FF1.html">FF PORK LUNCHEON MEAT</a></li>
+                <li><a href="FF2.html" data-url="FF2.html">FF BACON CLASSIC</a></li>
+                <li><a href="FF3.html" data-url="FF3.html">FF B SJ CLASSIC</a></li>
+                <li><a href="FF4.html" data-url="FF4.html">FF B KINGSIZE</a></li>
+                <li><a href="FF5.html" data-url="FF5.html">FF SULIT KINGSIZE</a></li>
+                <li><a href="FF6.html" data-url="FF6.html">FF B SJ CHICKEN 1KG</a></li>
+                <li><a href="FF7.html" data-url="FF7.html">FF B CHICKEN FRANKS</a></li>
+                <li><a href="FF8.html" data-url="FF8.html">FF FOOTLONG</a></li>
+                <li><a href="FF9.html" data-url="FF9.html">FF B REG CHEESEDOG</a></li>
+                <li><a href="FF10.html" data-url="FF10.html">FF TOCINITOS</a></li>
+                <li><a href="FF11.html" data-url="FF11.html">FF MIX VEGETABLE CREAM DORY</a></li>
+                <li><a href="FF12.html" data-url="FF12.html">FF SEAFOODS</a></li>   
+            </ul>
+          </div>
+
+          <nav>
+      <a href="index.html">Home</a>
+      <a href="Products.html">Products</a>
+      <a href="aboutUs3.html">About us</a>
+        </nav>          
+      </header>
+
+      <div class="grids">
+        <aside>
+            <br><br><br><br><br>
+            <h1>Product Categories</h1>
+            <br>
+<div class="cdo" onclick="toggleDropdownC()">
+  <span>
+    CDO Products <img src="pictures And Icons/arrow-down-sign-to-navigate.png" class="icondown1" alt="▼">
+  </span>
+  <hr>
+  <div class="cContent" id="dropdownContentC">
+    <ul>
+        <li><a href="ct1.html">CDO IDOL CHEESEDOG</a></li><hr>
+        <li><a href="ct2.html">CDO Classic Sweet Ham</a></li><hr>
+        <li><a href="ct3.html">CDO HOL Bacon Roll</a></li><hr>
+        <li><a href="ct4.html">CDO Pork Longganisa</a></li><hr>
+        <li><a href="ct5.html">CDO FUN Y Tocino</a></li><hr>
+        <li><a href="ct6.html">CDO Ulam Burger Regular</a></li><hr>
+        <li><a href="ct7.html">CDO Corned Beef</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="pureF" onclick="toggleDropdownF()">
+  <span>
+    Purefoods Products <img src="pictures And Icons/arrow-down-sign-to-navigate.png" class="icondown2" alt="▼">
+  </span>
+  <hr>
+  <div class="pureF1" id="dropdownContentF">
+    <ul>
+      <li><a href="tp1.html">Purefoods Tender Juicy</a></li><hr>
+      <li><a href="tp2.html">Purefoods Chicken Breast Nuggets</a></li><hr>
+      <li><a href="tp3.html">Purefoods Sweet Ham</a></li><hr>
+      <li><a href="tp4.html">Purefoods VIDA Bacon Roll</a></li><hr>
+    </ul>
+  </div>
+</div>
+
+<div class="MomL" onclick="toggleDropdownM()">
+  <span>
+    Mommy Loida <img src="pictures And Icons/arrow-down-sign-to-navigate.png" class="icondown3" alt="▼">
+  </span>
+  <hr>
+  <div class="MomL1" id="dropdownContentM">
+    <ul>
+        <li><a href="ml2.html">SIOPAO ASADO</a></li><hr>
+        <li><a href="ml1.html">Mommy Loida SIOMAI</a></li><hr>
+        <li><a href="ml3.html">Mommy Loida SHANGHAI</a></li><hr>
+        <li><a href="ml4.html">PORK LUNCHEON MEAT</a></li><hr>
+        <li><a href="ml5.html">LECHON KAWALI</a></li><hr>
+        <li><a href="ml6.html">CHICHARON BULAKLAK</a></li><hr>
+        <li><a href="ml7.html">PORK TOCINO</a></li><hr>
+        <li><a href="ml8.html">SWEET HAM</a></li><hr>
+        <li><a href="ml9.html">GARLIC LONGANISA</a></li><hr>
+        <li><a href="ml10.html">PORK SISIG</a></li><hr>
+    </ul>
+  </div>
+</div>
+
+<div class="Frab" onclick="toggleDropdownR()">
+  <span>
+    Frabelle Products <img src="pictures And Icons/arrow-down-sign-to-navigate.png" class="icondown" alt="▼">
+  </span>
+  <hr>
+  <div class="Frab1" id="dropdownContentR">
+    <ul>
+        <li><a href="FF1.html">FF PORK LUNCHEON MEAT</li></a><hr>
+        <li><a href="FF2.html">FF BACON CLASSIC</li></a><hr>
+        <li><a href="FF3.html">FF B SJ CLASSIC</li></a><hr>
+        <li><a href="FF4.html">FF B KINGSIZE</li></a><hr>
+        <li><a href="FF5.html">FF SULIT KINGSIZE</li></a><hr>
+        <li><a href="FF6.html">FF B SJ CHICKEN 1KG</li></a>
+        <li><a href="FF7.html">FF B CHICKEN FRANKS</li></a><hr>
+        <li><a href="FF8.html">FF FOOTLONG</li></a><hr>
+        <li><a href="FF9.html">FF B REG CHEESEDOG</li></a><hr>
+        <li><a href="FF10.html">FF TOCINITOS</li></a><hr>
+        <li><a href="FF11.html">FF MIX VEGETABLE FF CREAM DORY</li></a><hr>
+        <li><a href="FF12.html">FF SEAFOODS</li></a >   
+    </ul>
+  </div>
+</div>
+
+        </aside>
+        <main>
+          <section style="margin-top:  5rem;">
+            <div class="wrap-box" id="wrp">
+              <div><a href="pr19.html" class="LinkB"><img src="pictures And Icons/Luncheon_shadow.avif" alt="Description 3"></a>
+                <div class="desc">
+              <a href="pr19.html" class="LinkB">
+                <p>Mommy Pork Luncheon Meat </p><h6>₱300</h6></div>
+              </a>
+              </div>
+              </div>
+              </section>
+        </main>
+
+
+        <footer>
+      
+      </div>
+</body>
+</html>

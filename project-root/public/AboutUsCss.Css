@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+  }
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-position: 450px -50.99px;
+    backdrop-filter: blur(1.09px);
+  }
+
+    body {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-image:url('pictures And Icons/Warning\ T-Rex\ GIF\ by\ Meta\ Digital.gif');
+    }
+    .about-container, .about-container2 {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 80px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+   
+    .about-container h2,
+    .about-container2 h2 {
+      color:black;
+      margin-bottom: 20px;
+    }
+    .about-container p {
+      line-height: 1.6;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .gallery-section {
+      margin-top: 20px;
+      margin:auto;
+    }
+
+
+
+
+
+
+    .gallery-section h3 {
+      color: black;
+      margin-bottom: 100px;
+      font-size:65px;
+      font-family:verdana;
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 55px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.15);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+
+
+
+.location-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 80px auto;
+  padding: 40px 60px;
+  max-width: 950px;
+}
+
+
+.location-text {
+  flex: 1;
+  padding-right: 20px;
+  transform: none;
+  min-width: 250px;
+}
+
+.location-text h2 {
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.location-text p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.location-image {
+  flex: 1;
+  text-align: center;
+  transform: none;
+  min-width: 350px;
+  
+  
+}
+
+
+.location-text, .location-image {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+
+.location-image img {
+  max-width: 50%;
+  height:fit-content;
+  border-radius: 10px;
+}
+
+
+ header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    
+    
+  }
+  nav{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  nav a {
+    margin-left: 1.8rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+    vertical-align: middle;
+  }
+  .icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 1px;
+    margin-bottom: 1px;
+  }
+
+  nav a:hover{
+    color: #e91e63;
+  }
+  .active{
+    color: #e91e63;
+  }
+
+    .logo img {
+      height: 50px;
+      cursor: pointer;
+    }
+.active{
+  color: #e91e63; 
+}
+footer {
+   background-color: #f7f7f7;
+  text-align: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+footer.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  margin-top: 0;
+  z-index: 9999;
+  transition: all 0.4s ease-in-out;
+  margin-top: 5rem;
+}
+
+footer.expanded .hidden-form {
+  display: flex;
+}
+
+.hidden-form {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  }
+
+.hidden-form input,
+.hidden-form textarea {
+  width: 80%;
+  max-width: 400px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.hidden-form button {
+  padding: 12px 24px;
+  border: none;
+  background-color: #e91e63;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.hidden-form button#close-footer {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.hidden-form button#close-footer:hover {
+  background-color: #e91e63;
+  transition: all 0.3s ease;
+} 
+  h3 a{
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+
+  }
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .socials div {
+    background: #000000;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  .socials img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover; 
+    transition: transform 0.3s;
+   }
+   .socials img:hover{
+    transform: scale(1.5);
+
+   }
+  .contact {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 1px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    color: #000;
+  }
