@@ -1,4 +1,4 @@
-const sql = require('mssql');
+const sql = require('mssql')
 
 const config = {
   user: 'Leifoodhub',
@@ -6,27 +6,27 @@ const config = {
   server: 'localhost',
   database: 'lei_foodhubDb',
   options: {
-	instanceName: 'MSSQLPATSV',
-	encrypt: true,
-	trustServerCertificate: true
-  }
-};
-
-async function query(sqlQuery, params = {}) {
-  try {
-	const pool = await sql.connect(config);
-	const request = pool.request();
-
-	for (let param in params) {
-  	request.input(param, params[param]);
-	}
-
-	const result = await request.query(sqlQuery);
-	return result.recordset;
-  } catch (err) {
-	console.error("Database Query Error:", err.message);
-	throw err;  
+    instanceName: 'MSSQLPATSV',
+    encrypt: true,
+    trustServerCertificate: true
   }
 }
 
-module.exports = { query };
+async function query(sqlQuery, params = {}) {
+  try {
+    const pool = await sql.connect(config)
+    const request = pool.request()
+
+    for (const param in params) {
+      request.input(param, params[param])
+    }
+
+    const result = await request.query(sqlQuery)
+    return result.recordset
+  } catch (err) {
+    console.error("Database Query Error:", err.message)
+    throw err
+  }
+}
+
+module.exports = { query }
