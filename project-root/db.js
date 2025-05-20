@@ -1,12 +1,17 @@
 const sql = require('mssql')
 
 const config = {
-  connectionString: process.env.MSSQL_URL,
+  user: 'Leifoodhub',
+  password: 'leiallen12345',
+  server: 'MSI',
+  database: 'lei_foodhubDb',
   options: {
+    instanceName: 'MSSQLPATSV',
     encrypt: true,
     trustServerCertificate: true
   }
 }
+
 
 async function query(sqlQuery, params = {}) {
   const pool = await sql.connect(config)
