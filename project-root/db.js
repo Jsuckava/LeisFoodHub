@@ -6,7 +6,7 @@ const config = {
   password: 'leiallen12345',
   server: 'localhost',
   database: 'lei_foodhubDb',
-  port: 1433,
+  port: 8080,
   options: {
     encrypt: true,
     trustServerCertificate: true
