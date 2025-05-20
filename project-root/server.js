@@ -1,87 +1,57 @@
-const express = require('express');
-const sql = require('msnodesqlv8');
-const bcrypt = require('bcrypt');
-const bodyParser = require('body-parser');
-const path = require('path');
-const fs = require('fs');
-const session = require('express-session');
-const app = express();
+const express = require('express')
+const bcrypt = require('bcrypt')
+const bodyParser = require('body-parser')
+const path = require('path')
+const fs = require('fs')
+const db = require('./db')
+const app = express()
 
-const connectionString = "server=MSI\\MSSQLPATSV;Database=lei_foodhubDb;Trusted_Connection=Yes;Encrypt=yes;TrustServerCertificate=yes;Driver={ODBC Driver 17 for SQL Server}";
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'public')))
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(session({
-  secret: 'yourSecretKey',
-  resave: false,
-  saveUninitialized: true,
-}));
-
-const publicDir = path.join(__dirname, 'public');
+const publicDir = path.join(__dirname, 'public')
 fs.readdirSync(publicDir).forEach(file => {
   if (file.endsWith('.html')) {
-    const routePath = '/' + path.parse(file).name;
+    const routePath = '/' + path.parse(file).name
     app.get(routePath, (req, res) => {
-      res.sendFile(path.join(publicDir, file));
-    });
-    console.log(`Route created: ${routePath} → ${file}`);
+      res.sendFile(path.join(publicDir, file))
+    })
+    console.log(`Route created: ${routePath} → ${file}`)
   }
-});
+})
 
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  const query = `SELECT * FROM LF_Users WHERE username = ?`;
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body
+  const query = `SELECT * FROM LF_Users WHERE username = @username`
 
-  sql.query(connectionString, query, [username], (err, rows) => {
-    if (err) return res.status(500).send('Database error');
-    if (rows.length === 0) return res.status(401).send('Invalid username or password');
+  try {
+    const rows = await db.query(query, { username })
+    if (rows.length === 0) return res.status(401).send('Invalid username or password')
 
-    bcrypt.compare(password, rows[0].password, (err, result) => {
-      if (err) return res.status(500).send('Password check failed');
-      if (!result) return res.status(401).send('Invalid username or password');
+    const match = await bcrypt.compare(password, rows[0].password)
+    if (!match) return res.status(401).send('Invalid username or password')
 
-      req.session.username = username; 
-      res.redirect('/');
-    });
-  });
-});
-
-app.post('/signup', (req, res) => {
-  const { username, email, password } = req.body;
-
-  if (req.body.password !== req.body['confirm-password']) {
-    return res.status(400).send("Passwords do not match.");
+    res.redirect('/prototype1')
+  } catch (err) {
+    res.status(500).send('Database error')
   }
+})
 
-  bcrypt.hash(password, 10, (err, hashedPassword) => {
-    if (err) return res.status(500).send('Password hashing failed');
+app.post('/signup', async (req, res) => {
+  const { username, email, password, 'confirm-password': confirmPassword } = req.body
+  if (password !== confirmPassword) return res.status(400).send("Passwords do not match.")
 
-    const query = `INSERT INTO LF_Users (username, email, password) VALUES (?, ?, ?)`;
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10)
+    const query = `INSERT INTO LF_Users (username, email, password) VALUES (@username, @email, @password)`
+    await db.query(query, { username, email, password: hashedPassword })
 
-    sql.query(connectionString, query, [username, email, hashedPassword], (err) => {
-      if (err) return res.status(500).send('Signup failed');
-      res.redirect('/acc');
-    });
-  });
-});
-
-app.get('/', (req, res) => {
-  if (!req.session.username) {
-    return res.redirect('/acc'); 
+    res.redirect('/acc')
+  } catch (err) {
+    res.status(500).send('Signup failed')
   }
+})
 
-  res.sendFile(path.join(publicDir, 'index.html'));
-});
-
-app.get('/get-username', (req, res) => {
-  if (req.session.username) {
-    res.json({ username: req.session.username });
-  } else {
-    res.json({ username: null });
-  }
-});
-
-app.listen(8000, () => {
-  console.log('Server running on http://localhost:8000');
-});
+app.listen(4000, () => {
+  console.log('Server running on http://localhost:4000')
+})
