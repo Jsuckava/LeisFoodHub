@@ -7,6 +7,7 @@ const session = require('express-session')
 const db = require('./db')
 
 const app = express()
+const PORT = process.env.PORT || 8000
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -17,15 +18,17 @@ app.use(session({
 }))
 
 const publicDir = path.join(__dirname, 'public')
-fs.readdirSync(publicDir).forEach(file => {
-  if (file.endsWith('.html')) {
-    const routePath = '/' + path.parse(file).name
-    app.get(routePath, (req, res) => {
-      res.sendFile(path.join(publicDir, file))
-    })
-    console.log(`Route created: ${routePath} → ${file}`)
-  }
-})
+if (fs.existsSync(publicDir)) {
+  fs.readdirSync(publicDir).forEach(file => {
+    if (file.endsWith('.html')) {
+      const routePath = '/' + path.parse(file).name
+      app.get(routePath, (req, res) => {
+        res.sendFile(path.join(publicDir, file))
+      })
+      console.log(`Route created: ${routePath} → ${file}`)
+    }
+  })
+}
 
 app.post('/login', async (req, res) => {
   const { username, password } = req.body
@@ -70,6 +73,6 @@ app.get('/get-username', (req, res) => {
   res.json({ username: req.session.username || null })
 })
 
-app.listen(8000, () => {
-  console.log('Server running on http://localhost:8000')
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`)
 })
