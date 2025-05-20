@@ -1,12 +1,8 @@
 const sql = require('mssql')
 
 const config = {
-  user: 'Leifoodhub',
-  password: 'leiallen12345',
-  server: 'localhost',
-  database: 'lei_foodhubDb',
+  connectionString: process.env.MSSQL_URL,
   options: {
-    instanceName: 'MSSQLPATSV',
     encrypt: true,
     trustServerCertificate: true
   }
